@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s ease;
+}
+
+/* Base Weather Styles */
+.weather-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+}
+
+.search-box {
+    margin-bottom: 1.5rem;
+}
+
+input, button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    margin: 0.2rem;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.weather-info div {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+/* Climate Backgrounds */
+.sunny {
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+}
+
+.rainy {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+}
+
+.snowy {
+    background: linear-gradient(45deg, #636e72, #dfe6e9);
+}
+
+/* Rain Animation */
+.rainy::before {
+    content: '';
+    position: fixed;
+    top: -50vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><line x1="%{x1}%" y1="0" x2="%{x2}%" y2="100" stroke="rgba(255,255,255,0.5)" stroke-width="1"/></svg>');
+    animation: rain 0.5s linear infinite;
+}
+
+@keyframes rain {
+    0% { transform: translateY(-50vh); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Snow Animation */
+.snowy::before {
+    content: '';
+    position: fixed;
+    top: -50vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.8)"/></svg>');
+    animation: snow 5s linear infinite;
+}
+
+@keyframes snow {
+    0% { transform: translateY(-50vh); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Sunny Animation */
+.sunny::after {
+    content: '☀️';
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
