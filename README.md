@@ -20,7 +20,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/weather-magic.git
+git clone https://github.com/Gowshekan/Weather-App.git
 
 # Get free API key from:
 # 🔑 https://openweathermap.org/api
